@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+</head>
+<h1>
+    This is bsaase
+</h1>
+<body class="main">
+<div>
+    <p>
+        Please enter your name
+
+        <form class="pure-form" method="POST" action="/s">
+        Name:<br>
+        <input type="text" name="username"></br>
+    <button type="submit" class="pure-button pure-button-primary" value="submit">Submit</button>
+    </form>
+    </p>
+
+</div>
+{% if name %}
+    <p>This is my name : {{name}} </p>
+{% endif %}
+
+<!--{% for obj in lis %}-->
+<!--    <p>OBJECT : {{obj}}</p>-->
+<!--{% endfor %}-->
+
+
+<table class="pure-table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Password</th>
+            <th>User ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in lis %}
+            <tr>
+                <td>{{ row.email }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.password }}</td>
+                <td>{{ row.user_id }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
+</html>
